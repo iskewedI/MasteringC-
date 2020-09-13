@@ -1,0 +1,52 @@
+-CLR => Run-Time Environment | This compiles the IL (Intermediate Language) to the native machine running code | 
+		This process is called Just-In-Time Compilation (JIT)
+-An assembly is a file (DLL or EXE) that contains namespaces and classes.
+-EXE => Represents an executable program.
+-DLL => File that contains code that can be reused across diferent programs.
+-For constants is used Pascal Case.
+-Keyword "checked{}" is used to handle Overflow, and enables overflow checking at runtime.
+-Type Conversions => {
+		-The Implicit TYpe Conversion takes place when you assign a a particular type value to another type of variable, but
+			there's no possibility to lose data. int i = b => Where B is a BYTE, Integer has MORE CAPACITY.
+		-The Explicit Type Conversion takes place when it's possible to lose data because you're converting to another
+			data type that has LESS CAPACITY. byte b = i => Where I is an INTEGER, Byte has LESS capacity and data
+				can be lost, it WONT COMPILE. Yo need to EXPLICIT convert the type byte b = (byte)i. 
+		-The Non-Compatible Type Conversion happens when data types are incompatible, and you need to use methods like
+			Convert.ToInt32(string) to do that.
+	}
+-@"text that you can put in several lines" => Used to specify properly the structure of a string => {
+		@"i can put
+		spaces and the code won't break!!
+		:D"
+	}
+-Types => {
+		-Value Types => Structures (int, byte, etc) => {
+				-Allocated on stack (some part of memory)
+				-Memory allocation done automatically.
+				-Immediately removed when out of scope.
+			}
+		-Reference Types => Classes => {
+				-Allocation in memory is needed => With the NEW keyword!
+				-Memory allocated on "heap" => Other part of memory => Where data is not removed immediately.
+				-When out of scope, is considered as GARBAGE, and is collected by CLR.
+			}
+		-When creating a Reference Type (like an array) => {
+				-First is created a memory location that contains the data of the array in the HEAP.
+				-Then, a variable containing the REFERENCE to the memory location in the HEAP is created in the STACK memory.
+				-if another variable is assigned to first variable in the STACK, both will point to the SAME MEMORY LOCATION!
+			}
+	}
+-STATIC modifier => {
+		-Applied to a class member (field or method) => 
+			{
+				-Accesible only via the class, not instance objects!
+				-Used when we want only ONE instance of that member to exists in memory.
+				-The MAIN method in every program is declared as static, we need only ONE ENTRY POINT to the app!.
+				-Makes writing automated tests hard, so it's preferable not to use them.
+			}
+	}
+-String vs string => {
+		-String is the .NET class.
+		-string is the C# Type.
+		-Difference => The String class is in the System namespace so you have to import it.
+	}

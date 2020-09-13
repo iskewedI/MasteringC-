@@ -6,7 +6,13 @@ namespace MasteringCSharp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            int i = 1000;
+            byte b = (byte)i;
+            Console.WriteLine(b);
+            Console.WriteLine(@"\\");
+
+            Enums enums = new Enums();
+            enums.Main();
         }
     }
 }
