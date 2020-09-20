@@ -4,12 +4,12 @@ namespace MasteringCSharp
 {
 	public class Enums
 	{
-		public enum EnumExample
+        public enum EnumExample
 		{
 			PropertyOne = 1,
 			PropertyTwo = 2
 		}
-
+		
 		public void Main()
 		{
 			var propertyOneValue = EnumExample.PropertyOne;

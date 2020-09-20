@@ -1,0 +1,82 @@
+-Inheritance => Is-A relationship => {
+	-Code re-use
+	-Polymorphic behaviour
+}
+-Composition => Has-A Relationship {
+	-A relationship between two classes that allows one to contain the other, one requires another.
+	-The required class is initializated as a property of another class in the constructor => {
+			public class Class 
+			{
+				private Required _requiredClass;
+				
+				public Class(Required requiredClass)
+				{
+					_requiredClass = requiredClass;
+				}
+			}
+		}
+}
+-Any Inheritence relationship can be translated to Composition => {
+	-The "child" classes will HAVE a property of the previous "parent" class.
+	-Adding new objects wont broke the hierarchy!
+}
+-Access Modifiers => 
+{
+	-Protected => Accesible only by the class and its childrens.
+	-Internal => Accesible only from the same assembly.
+}
+-Constructors => 
+{
+	-Base class constructors are ALWAYS executed first.
+	-Base class constructors are NOT inherited.
+	-To call the base constructor => 
+	{
+		public class Inherited : Parent 
+		{
+			public Inherited(string param) : base(param)
+			{
+				//Constructor specific to the Inherited class.
+			}
+		}
+	}
+}
+-Upcasting and Downcasting => 
+{
+	-Upcasting => Converting an object to the PARENT object type class => 
+		{
+			Circle circle = new Circle(); -> Circle INHERITS of SHAPE class
+			Shape shape = circle; -> We convert the circle to the parent class.
+		}
+	-Downcasting => Convert an object to the CHILDREN object type class, using CASTING => 
+		{
+			-- continuing from previous example --
+			Circle anotherCircle = (Circle)shape -> We cast the shape (parent type class) to the children Circle class.
+			
+			Casting can throw InvalidCastException, the object MUST BE pointing first to the class we want to cast (shape was assigned to a Circle object first!)
+		}
+}
+-The As keyword => 
+{
+	-To do casting.
+	-Don't throw exception if the object cant be casted -> Returns null instead.
+}
+-The Is keyword => To chec the type of an object => (obj is ClassObject) => Bool
+-Parent obj = new Children(); -> At runtime, obj will be the type of Children, but it will has the properties of PARENT! => 
+{
+	-You need to Downcast => Children children = (Children) obj -> Now you can access de properties of the children
+}
+-Boxing and Unboxing => 
+{
+	-Boxing => Process of converting a VALUE TYPE instance to an OBJECT REFERENCE TYPE => 
+		{
+			object obj = 10; -> int to object
+		}
+		-The value type is boxed and stored in the HEAP instead of the STACK, and create a reference in the STACK that references the location of the value on the HEAP.
+	-Unboxing => Process of converting a REFERENCE TYPE to a value type =>
+		{
+			object obj = 10;
+			int number = (int)obj; -> obj to int
+		}
+	-Both have a performance penalty.
+	-Avoid this => Use type limiters to lists and arrays to limit the TYPE value that can be contained.
+}

@@ -1,0 +1,49 @@
+-Signature of a method => Combination of its Name, and Number and Types of its parameters.
+-Object initializers => Solves the problem of multiple constructor in classes => 
+	{
+		var person = new Person {
+				Name = "name",
+				LastName = "lastname"
+			};
+	}
+-Method and constructor overloading => Same name but different parameters.
+-The REF Modifier => void Method(ref int a) => The parameter take the REFERENCE of the memory location of the int "a" => "a" can be mutated.
+-The OUT Modifier => void Method(out int result) & class.Method(out a) => Return multiple values => The result in the method will be assigned to "a".
+-The READONLY modifier => Make a field only assignable ONE TIME (at declaration time or in the constructor).
+-PROPERTIES => {
+		-Pascal case to use Properties.
+		-public int property 
+		{
+			get { return _field; }
+			set { _field = value }
+		}
+		-Auto-implemented Properties => {
+				public int property { get; set; } - Shortcut
+				public int property { get; private set; } - The setter has the private modifier, isn't accesible for outside.
+			}
+		-Auto-Implemented Properties, by convention, are declared on the TOP of the class.
+		-Calculated Properties, by convention, are separated and declarated AFTER the Auto-Implemented Properties.
+	}
+-In classes, you can set properties with INDEXERS => {
+		-public class Class {
+			public string this[string key]{
+				get { ... }
+				set { ... }
+			}
+		}
+		-Use dictionaries to do that!
+	}
+-Class Coupling => A measure of how interconnected classes and subsystems are => 
+	{
+		-Classes depending on another classes => Tightly Coupled or Loosely Coupled.
+		-Changes have to be isolated.
+		-Solves this => {
+			-Encapsulation - Reduce detail knowledge and logic in capsules.
+			-Relationships between classes -> {
+				-Inheritance
+				-Composition
+				-"Favour Composition over Inheritance"
+			}
+			-Interfaces 
+		}
+	}
