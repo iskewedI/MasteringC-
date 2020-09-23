@@ -1,0 +1,18 @@
+-Method overriding => 
+{
+	-We can override a virtual or abstract inherited method.
+}
+-Abstract classes and members => 
+{
+	-Indicates that it's missing implementation.
+	-If a member is abstract, the containing class needs to be declared as abstract too.
+	-The derived classes MUST implement all abstract members with the method OVERRIDING.
+	-Abstract classes CAN'T be instantiated.
+	-Used to provide common behaviour while forcing the development to follow a particular design.
+}
+-Sealed classes and memebers => 
+{
+	-The opposite of abstract.
+	-Prevents the derivation of classes or overriding of methods.
+	-Are faster because of some run-time optimizations.
+}

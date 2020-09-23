@@ -1,0 +1,21 @@
+-Interfaces => 
+{
+	-A language construct that is similar to a class (syntax).
+	-Convension => Start it name with I => ITaxCalculator.
+	-Interface members don't have either implementation nor access modifiers. It's only declarations.
+	-To build loosely-coupled apps, where changes have minimal impact on the app.
+	-With interfaces, classes are no longer dependent of other classes, but on ROLES (interfaces) of that classes =>
+		{
+			-So we can make changes in that classes without impacting the no longer dependent classes.
+			-The classes no longer knows each other! Only the Interface (role) of other classes.
+		}
+}
+Extensibility in interfaces => 
+{
+	-Open/Close principle => Open for EXTENSION but closed for MODIFICATION.
+}
+-Interfaces shouldn't be used for MULTIPLE INHERITANCE (inherit for more than one class) => 
+{
+	-We can derive from more than one Interface => but WE SHOULDN'T => There's no code to inherit, we need to declare all of it again!
+	-Because Interfaces are NOT base classes, we don't inherit the code, we don't reuse anything!
+}
