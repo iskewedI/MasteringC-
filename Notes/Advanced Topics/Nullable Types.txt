@@ -1,0 +1,30 @@
+-A value type cannot be NULL.
+-To solve this{
+	-Nullable<DateTime> date = null;
+	-DateTime? date = null;
+}
+-Properties and methods of nullable types => 
+{
+	-GetType
+	-GetValueOrDefault => Returns a value or the default value for that type.
+	-HasValue => Returns true if has value, false if not.
+	-Value => Throw exception if hasn't a value.
+}
+-Null Coalescing Operator => 
+{
+	-Prevents throwing exceptions if null are referenced.
+	-Prevents => 
+	{
+		var someElse=
+		if(some != null){
+			someElse = some;
+		}else{
+			someElse = 2;
+		}
+	}
+	-Replaces int someElse = (some != null) ? some : 2;
+	-Syntaxis => 
+	{
+		-someelse = some ?? 2; // If some is not null, take the value of some, eitherway take 2.
+	}
+}

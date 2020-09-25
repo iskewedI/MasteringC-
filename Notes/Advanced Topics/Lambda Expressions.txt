@@ -1,0 +1,27 @@
+-An anonymous method => 
+{
+	-No access modifier.
+	-No name.
+	-No return statement.
+}
+-More readable and less code => 
+{
+	-static int Square(int number)
+	{
+		return number*number;
+	}
+	-With Lambda => 
+	{
+		- number => number * number; -> The syntax -> (args) + "=>" + the return body
+		//We need to assign it to a delegate, so -> 
+
+		Func<int, int> square = number => number * number;
+		int theSquare = square(2);
+	}
+}
+-It has access to the scope where it's defined.
+-Used in Predicates => 
+{
+	-var some = list.FindAll(element => element.Some == thing);
+}
+-Predicate => A delegate that takes args and returns a BOOLEAN that represent the result of a given condition.

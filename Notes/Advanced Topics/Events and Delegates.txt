@@ -1,0 +1,27 @@
+-Events => 
+{
+	-A mechanism for communication between objects.
+	-Used in building Loosely Coupled Applications.
+}
+-Convension => 
+{
+	-There is a Publisher and one or multiple Subscribers.
+	-Steps => 
+	{
+		-1) Define the delegate.
+		-2) Define an event based on that delegate.
+		-3) Raise the event.
+	}
+	-We append "EventHandler" to the name of the delegate => SomeUtilityEventHandler.
+	-For the methods that raise the event, we name it with On and the name => OnSomeUtility.
+}
+-In this concept, Delegates are => 
+{
+	-Agreement/Contract between Publisher and Subscriber.
+	-Determines the signature of the event handler method in Subscriber.
+}
+-To register the handler for the EVENT => class.SomeAction += class.onSomeAction;
+-We can use a native delegate instead of creating it => 
+{
+	-EventHandler | EventHandler<TEventArgs>
+}

@@ -1,0 +1,29 @@
+-Static languages => at compile-time -> Immediate feedback.
+-Dynamic language => at runtime -> Feedback at runtime.
+- .NET 4 added the DYNAMIC capability -> Without it, we've to use Reflection =>
+{
+	-Reflection is: first get info of the object and then invoke method => 
+	{
+		-var methodInfo = obj.GetType().GetMethod("GetHashCode");
+		methodInfo.Invoke(args);
+	}
+	-Difficult to understand.
+	-With DYNAMIC => 
+	{
+		-dynamic obj;
+		obj.GetHashCode(); //Not compile-time errors. 
+	}
+}
+-DLR => Dynamic Language Runtime => Gives us that capability.
+-You have dynamic typing => 
+{
+	-dynamic name = "Name";
+	name = 2; //Dynamic typing.
+}
+-RuntimeBinderException => Unhandled exception in dynamic types.
+-If we assign a dynamic value to a STATIC variable (var) => The static variable becomes DYNAMIC => 
+{
+	-dynamic a = 10;
+	dynamic b = 5;
+	var c = a + b; //The type of C is DYNAMIC now!
+}

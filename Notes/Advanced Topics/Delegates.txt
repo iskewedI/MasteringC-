@@ -1,0 +1,78 @@
+-Delegate => Object that knows how to call a method (or a group of methods) => A reference/pointer to a function!
+-Used for designing extensible and flexible apps (frameworks).
+{
+	-public class DelegatesClass 
+	{
+		-public delegate void FunctionsHandler(FunctionClass function);
+		-public void Process(string some, FunctionsHandler functionsHandler)
+		{
+			functionsHandler(some);
+		}
+	}
+	-Then => 
+		{
+			var processor = new DelegatesClass();
+
+			var functions = new Functions();
+			
+			DelegatesClass.FunctionsHandler functionsHandler = functions.SomeFunction; //We pass the reference
+			FunctionsHandler += functions.AnotherFunction; // We can add more functions!
+
+			processor.Process("some", functionsHandler);
+		}
+}
+-Under the hood => 
+{
+	-A delegate derives from System.MulticastDelegate.
+	-System.MulticastDelegate derives from System.Delegate.
+	-System.Delegate => 
+		Properties => 
+		{
+			-Method -> Represents the method that this delegate is pointing to (functions.SomeFunction first) 
+			-Target -> The class that holds the method (Functions)
+		}
+		Non Public members (MulticastDelegate) => 
+		{
+			-_invocationCount -> Count of methods that will invoke.
+			-_invocationList -> The list of methods to invoke.
+		}
+}
+-We can use two generic natives delegates => 
+{
+	-System.Action<T> -> Up to 16 parameters.
+	-System.Func<> -> Same as Action.
+	-Func points to a method that RETURNS a VALUE | Action points to a method that RETURNS VOID.
+	=>
+		{
+			-public class DelegatesClass
+			{
+				// -public delegate void FunctionsHandler(FunctionClass function) NO MORE.
+
+				-public void Process(string some, Action<string> functionsHandler)
+				{
+					//We can pass any action that returns VOID as a functionsHandler.
+					functionsHandler(some);
+				}
+				
+			}
+			-Then => 
+			{
+				var processor = new DelegatesClass();
+
+				var functions = new Functions();
+				
+				Action<string> functionsHandler = functions.SomeFunction; //We now pass the action!
+				FunctionsHandler += functions.AnotherFunction; // We can add more functions!
+
+				processor.Process("some", functionsHandler);
+			}
+		}
+}
+-When to use vs Interfaces =>
+{
+	-Use delegate when => 
+		{
+			-An eventing design pattern is used.
+			-The caller doesn't need to acces other properties or methods on the object implementing the method.
+		}
+}

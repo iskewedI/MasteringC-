@@ -1,0 +1,31 @@
+-Stands for Language INtegrated Query.
+-Gives you the capability to query => 
+{
+	-Objects in memory (collections) (to Objects)
+	-Databases (to Entities)
+	-XML (to XML)
+	-ADO.NET Data Sets (to Data Sets)
+}
+-LINQ Methods can be CHAINED!
+-Example => 
+{
+	-LINQ Extensions Methods => 
+	{
+		var cheapBooks = books
+							.Where(b => b.Price < 10)
+							.Order(b => b.Title)
+							.Select(b => b.Title);
+	}
+	-LINQ Query Operators => 
+	{
+		var cheapBooks = 
+			from b in books
+			where b.Price < 10
+			orderby b.Title
+			select b;
+	}
+}
+-Some methods like Single() requires that at least ONE object match the requirement, otherwise it'll throw an exception => 
+{
+	-If you're not sure that at least one object will be returned => Use SingleOrDefault() method => Can return NULL.
+}

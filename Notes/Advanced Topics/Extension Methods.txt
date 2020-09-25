@@ -1,0 +1,26 @@
+-To add method to an existing class without => 
+{
+	-changing its source code,
+	-creating a new class that inherit from it
+}
+-Convension => 
+{
+	//Where Class in the name refers to the class that we'll extend.
+	public static class ClassExtensions  
+	{
+		public static type MethodName(this Class nameParam, type parameter){}
+	}
+}
+Example extending String class => 
+{
+	-public static class StringExtensions
+	{
+		public static string Shorten(this String str, int param) 
+		{
+			return param;
+		}
+	}
+}
+-You need to be (or type "using") in the namespace where you define the extensions, or define it in the SYSTEM namespace or another most used.
+-It's not so supported, so take care using it.
+-IEnumerable.ANY => Is an extension method! (Comes with LINQ namespace).
